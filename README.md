@@ -1,12 +1,16 @@
 # netflixgpt
 
 - npx create-react-app netflixgpt
-
 - config tailwind css
-
+- routing
 - Header
-
 - login form
+- sign Up form
+- validation for form
+- useRef hooks
+- firebase setup
+- deploying app to production
+- firebase authentication for signUp and signIn
 
 # features
 
