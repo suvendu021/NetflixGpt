@@ -17,6 +17,17 @@
 - signOut feature
 - display username from redux store
 
+- (--- FIX BUGS----)
+  - when user not logged in , /browse redirect him to log in page and vice-versa
+  - cleanUp function for unsubscibe to onauthchange
+- write urls to a separate file constant.js
+- TMDB login ,create API , get accessToken
+- log tmdb now-playing-movies data in console
+- craete movie slice
+- design our browse page
+- store the movies in our store and show my 1st movie trailer and its description
+- create cusom hooks for fetch video info like trailer key and video from tmdb
+
 # features
 
 - Login/ Sign up page

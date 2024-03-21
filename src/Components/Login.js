@@ -8,15 +8,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/FireBase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
-import { addUser, removeUser } from "../utils/UserSlice";
+import { addUser } from "../utils/UserSlice";
+import { BG_APP } from "../utils/Constant";
 
 const Login = () => {
   const dispatch = useDispatch();
   const [signIn, setsignIn] = useState(true);
-
-  const navigate = useNavigate();
 
   const changeToSignInOrOff = () => {
     setsignIn(!signIn);
@@ -38,7 +37,7 @@ const Login = () => {
       );
     }
 
-    setInValidError("*" + message);
+    if (message !== null) setInValidError("*" + message);
 
     if (message) return;
 
@@ -58,20 +57,15 @@ const Login = () => {
             photoURL: "https://example.com/jane-q-user/profile.jpg",
           })
             .then(() => {
-              if (auth.currentUser) {
-                const { uid, email, displayName, photoURL } = user;
-                dispatch(
-                  addUser({
-                    uid: uid,
-                    email: email,
-                    displayName: displayName,
-                    photoURL: photoURL,
-                  })
-                );
-              } else {
-                dispatch(removeUser());
-              }
-              navigate("/browse");
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
             })
             .catch((error) => {
               console.log(error);
@@ -93,12 +87,11 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           // console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setInValidError("*" + errorCode + "-" + errorMessage);
+          setInValidError("* Entered email or password is wrong !!!");
         });
     }
   };
@@ -110,7 +103,7 @@ const Login = () => {
       <Header />
       <div className="absolute inset-0 ">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/93da5c27-be66-427c-8b72-5cb39d275279/94eb5ad7-10d8-4cca-bf45-ac52e0a052c0/IN-en-20240226-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={BG_APP}
           alt="bg-hero-screen"
           className="w-full h-full object-cover"
         />
@@ -144,7 +137,7 @@ const Login = () => {
           type="password"
           placeholder="Enter Your Password"
         />
-        <p className="py-2 text-red-700 font-bold w-72 text-wrap">
+        <p className="py-1 text-red-700 font-bold w-72 text-wrap text-xs">
           {inValidError}
         </p>
         <button
@@ -155,7 +148,7 @@ const Login = () => {
           {signIn ? "Sign In" : "Sign Up"}
         </button>
         <p
-          className="mt-4 text-center cursor-pointer"
+          className="mt-2 text-center cursor-pointer text-sm"
           onClick={changeToSignInOrOff}
         >
           {signIn
