@@ -25,7 +25,7 @@
 - log tmdb now-playing-movies data in console
 - craete movie slice
 - design our browse page
-- store the movies in our store and show my 1st movie trailer and its description
+- store the movies and the trailer should show on screen in our store and show my 1st movie trailer and its description
 - create cusom hooks for fetch video info like trailer key and video from tmdb
 
 # features

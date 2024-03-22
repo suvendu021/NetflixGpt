@@ -9,7 +9,7 @@ const VideoTrailer = ({ movieId }) => {
   return (
     <div className="w-screen">
       <iframe
-        className="w-screen aspect-video"
+        className="w-full aspect-video md:h-[500px]"
         src={
           "https://www.youtube.com/embed/" +
           trailer?.key +
