@@ -3,7 +3,7 @@ import { MOVIE_POSTER } from "../utils/Constant";
 
 const MovieCard = ({ poster }) => {
   return (
-    <div className="pr-3 w-36 hover:w-48">
+    <div className="pr-3 w-32 hover:w-40">
       <img
         src={MOVIE_POSTER + poster}
         alt="movie_poster"
