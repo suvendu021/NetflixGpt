@@ -7,9 +7,9 @@ const VideoTrailer = ({ movieId }) => {
   //   console.log(trailer);
   useGetVideoResponse(movieId);
   return (
-    <div className="w-screen">
+    <div className="w-screen ">
       <iframe
-        className="w-full aspect-video md:h-[500px]"
+        className="w-screen aspect-video "
         src={
           "https://www.youtube.com/embed/" +
           trailer?.key +

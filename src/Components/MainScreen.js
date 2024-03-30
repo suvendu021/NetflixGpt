@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 
 const MainScreen = () => {
   const movies = useSelector((store) => store.movie?.nowPlayingMovies);
-  console.log(movies);
+  // console.log(movies);
   if (!movies) return;
   const mainMovie = movies[0];
-  console.log(mainMovie);
+  // console.log(mainMovie);
   const { original_title, overview, id } = mainMovie;
   return (
     <div className="w-screen relative overflow-hidden">
