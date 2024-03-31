@@ -6,8 +6,11 @@ import { useTopratedMovies } from "../hooks/useTopratedMovies";
 import { useUpComingMovies } from "../hooks/useUpComingmovies";
 import MainScreen from "./MainScreen";
 import SecondaryScreen from "./SecondaryScreen";
+import GptSearchPage from "./GptSearchPage";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
+  const isSearchGptValue = useSelector((store) => store.gpt.gptSearchValue);
   useGetNowPlayingMovies();
   usePopularMovies();
   useTopratedMovies();
@@ -16,6 +19,14 @@ const Browse = () => {
   return (
     <div className="m-0 p-0">
       <Header />
+      {isSearchGptValue ? (
+        <GptSearchPage />
+      ) : (
+        <div>
+          <MainScreen />
+          <SecondaryScreen />
+        </div>
+      )}
 
       {/*
         - main screen
@@ -24,8 +35,6 @@ const Browse = () => {
         - secondary screen
           - movies list
       */}
-      <MainScreen />
-      <SecondaryScreen />
     </div>
   );
 };
