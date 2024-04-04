@@ -29,6 +29,17 @@
 - create cusom hooks for fetch video info like trailer key and video from tmdb
 - create customhooks for different types of movies list , store in reduxStore and populate in our app
 - create a buttton for toggling GPT search page add its vale in redux store
+- add our GPT search page (multi-language)
+- take userInput from search bar by useRef and store it in our redux store
+- use searchMovie api of tmdb to seach entered movie and show it to our screen
+- reusing our movieList component
+- make our website responsive
+
+# NEVER USE (NPM AUDIT FIX --FORCE) BREAK YOUR PROJECT(----FIX BUG ------)
+
+- "git status"(to make sure the changes to package.json and package-lock.json were not yet staged for commit)
+- "git restore package-lock.json" and "git restore package.json"
+- npm install
 
 # features
 

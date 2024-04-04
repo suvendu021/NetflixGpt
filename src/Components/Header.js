@@ -1,13 +1,16 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../utils/FireBase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/UserSlice";
 import { LOGO, USER_LOGIN_ICON } from "../utils/Constant";
-import { changeGptSearchValue } from "../utils/GptSlice";
+import { changeGptSearchValue, removeGptSearchMovie } from "../utils/GptSlice";
+import { changeLangPrefer } from "../utils/LangSlice";
 
 const Header = () => {
+  const currentLang = useSelector((store) => store.lang.langPrefer);
+  const isToggleGpt = useSelector((store) => store.gpt.gptSearchValue);
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
@@ -41,38 +44,78 @@ const Header = () => {
   }, []);
 
   const handleGptSearch = () => {
-    dispatch(changeGptSearchValue());
+    if (isToggleGpt) {
+      dispatch(removeGptSearchMovie());
+      dispatch(changeGptSearchValue());
+    } else {
+      dispatch(changeGptSearchValue());
+    }
+  };
+
+  const handleLangPreference = (e) => {
+    const language = e.target.value;
+    dispatch(changeLangPrefer(language));
+  };
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleShowMenu = () => {
+    setShowMenu(!showMenu);
   };
 
   return (
     <div className="absolute w-screen  z-10 bg-gradient-to-b from-black ">
       <div className="px-2 md:px-4 flex justify-between ">
-        <img className="md:w-52 w-28" src={LOGO} alt="logo" />
+        <img className="md:h-[82px]  h-12 " src={LOGO} alt="logo" />
         {user && (
-          <div className="flex">
-            <div className="flex items-center">
-              <button
-                className="px-4 py-2 m-2 rounded-lg bg-purple-700 text-white"
-                onClick={handleGptSearch}
-              >
-                GPTsearch
-              </button>
-            </div>
-
-            <div className="text-white flex items-center p-2 font-bold italic text-xs">
-              WELCOME ({user.displayName})
-            </div>
-            <img
-              src={USER_LOGIN_ICON}
-              alt="userIcon"
-              className="md:h-16 h-10 pt-2 md:pt-4"
-            />
-            <button
-              className="font-bold text-xs p-2 text-white"
-              onClick={signOutHandler}
+          <div className="md:flex">
+            <span
+              className="md:hidden material-symbols-outlined text-white flex justify-end items-center mt-1.5"
+              onClick={handleShowMenu}
             >
-              (Sign-Out)
-            </button>
+              {showMenu ? "close" : "menu"}
+            </span>
+            <div className={`md:flex ${showMenu ? "" : "hidden"}`}>
+              <div className="text-white flex text-center items-center p-2 font-bold italic  text-xs">
+                WELCOME ({user.displayName})
+              </div>
+              <div className="flex justify-end">
+                <img
+                  src={USER_LOGIN_ICON}
+                  alt="userIcon"
+                  className="md:h-16 h-10  pt-2 md:pt-4"
+                />
+              </div>
+              <div className="flex justify-end">
+                <button
+                  className="font-bold whitespace-nowrap text-xs  p-2 text-white"
+                  onClick={signOutHandler}
+                >
+                  (Sign-Out)
+                </button>
+              </div>
+
+              <div className="flex items-center justify-end">
+                <button
+                  className="md:px-4 px-2 py-2 md:m-2 m-0.5 rounded-lg bg-purple-700 text-white font-semibold  text-xs "
+                  onClick={handleGptSearch}
+                >
+                  {isToggleGpt ? "Home" : "GPTsearch"}
+                </button>
+              </div>
+              {isToggleGpt ? (
+                <div className="flex items-center justify-end">
+                  <select
+                    className="py-2 px-2 rounded-lg text-xs"
+                    onChange={handleLangPreference}
+                    value={currentLang}
+                  >
+                    <option value="en">English</option>
+                    <option value="Hindi">हिंदी</option>
+                    <option value="Odia">ଓଡିଆ</option>
+                  </select>
+                </div>
+              ) : null}
+            </div>
           </div>
         )}
       </div>

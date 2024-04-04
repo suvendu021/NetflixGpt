@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { UPCOMING_MOVIES_API, TMDB_OPTIONS } from "../utils/Constant";
 import { addUpComingMovies } from "../utils/MoviesSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export const useUpComingMovies = () => {
   const dispatch = useDispatch();
+  const upComingMovies = useSelector((store) => store.movie.upComingMovies);
 
   useEffect(() => {
-    getUpComingMovies();
+    if (upComingMovies === null) getUpComingMovies();
   }, []);
 
   const getUpComingMovies = async () => {
