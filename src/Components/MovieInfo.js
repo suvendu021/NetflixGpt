@@ -71,7 +71,7 @@ const MovieInfo = ({ movieId }) => {
                 {releaseDate}
               </span>
             </div>
-            <div className="md:ml-4  flex ml-4 items-center">
+            <div className="md:ml-4  flex ml-4 items-center overflow-x-scroll">
               <label className="text-white font-bold">Genres:</label>
               {genre.map((item) => (
                 <span
