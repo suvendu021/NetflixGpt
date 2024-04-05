@@ -1,7 +1,6 @@
 import React from "react";
 import { BG_APP } from "../utils/Constant";
 import GptSeachBar from "./GptSeachBar";
-import GPTsearchResult from "./GPTsearchResult";
 
 const GptSearchPage = () => {
   return (
@@ -13,7 +12,6 @@ const GptSearchPage = () => {
         alt="bg_netflix"
       />
       <div className="bg-black opacity-30 -z-10 inset-0 absolute"></div>
-      <GPTsearchResult />
     </div>
   );
 };

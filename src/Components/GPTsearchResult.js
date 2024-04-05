@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
+import ShimmerUi from "../utils/ShimmerUi";
 
 const GPTsearchResult = () => {
   const { gptSearchMovie, gptSearchMovieName } = useSelector(

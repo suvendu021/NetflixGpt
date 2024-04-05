@@ -1,4 +1,3 @@
-
 # netflixgpt
 
 - npx create-react-app netflixgpt
@@ -35,6 +34,7 @@
 - use searchMovie api of tmdb to seach entered movie and show it to our screen
 - reusing our movieList component
 - make our website responsive
+- some features like movieInfo when click to moviecard added
 
 # NEVER USE (NPM AUDIT FIX --FORCE) BREAK YOUR PROJECT(----FIX BUG ------)
 
@@ -62,8 +62,6 @@
   - searchbar
   - movie suggestion
 
-
-
 ![Screenshot (43)](https://github.com/suvendu021/NetflixGpt/assets/102411414/eb03e9d7-7a01-4bb3-8baf-763308ba40ed)
 ![Screenshot (44)](https://github.com/suvendu021/NetflixGpt/assets/102411414/7d709e26-4c20-4448-8df1-657130dfc910)
 ![Screenshot (45)](https://github.com/suvendu021/NetflixGpt/assets/102411414/de154ce8-90c4-45c9-b2b3-cbf665d7a60b)
@@ -72,4 +70,3 @@
 ![Screenshot (48)](https://github.com/suvendu021/NetflixGpt/assets/102411414/c5c606ab-93c8-48fd-b66b-981607c13ab9)
 ![Screenshot (49)](https://github.com/suvendu021/NetflixGpt/assets/102411414/2e8b4ddb-f476-414f-a434-724ef6bbe6e4)
 ![Screenshot (50)](https://github.com/suvendu021/NetflixGpt/assets/102411414/3602fe75-bb80-4ea6-acad-c048ec86f0c4)
-

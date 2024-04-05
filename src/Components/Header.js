@@ -74,36 +74,40 @@ const Header = () => {
             >
               {showMenu ? "close" : "menu"}
             </span>
-            <div className={`md:flex ${showMenu ? "" : "hidden"}`}>
+            <div
+              className={`md:flex ${
+                showMenu ? " bg-black opacity-80 p-2" : "hidden"
+              }`}
+            >
               <div className="text-white flex text-center items-center p-2 font-bold italic  text-xs">
                 WELCOME ({user.displayName})
               </div>
-              <div className="flex justify-end">
+              <div className="flex justify-center mt-2">
                 <img
                   src={USER_LOGIN_ICON}
                   alt="userIcon"
                   className="md:h-16 h-10  pt-2 md:pt-4"
                 />
               </div>
-              <div className="flex justify-end">
+              <div className="flex items-center justify-center mt-2">
                 <button
-                  className="font-bold whitespace-nowrap text-xs  p-2 text-white"
+                  className="md:px-4 px-2 py-2 md:m-2 m-0.5 rounded-lg bg-purple-700 text-white font-semibold  text-xs "
                   onClick={signOutHandler}
                 >
-                  (Sign-Out)
+                  Sign-Out
                 </button>
               </div>
 
-              <div className="flex items-center justify-end">
+              <div className="flex items-center justify-center mt-2">
                 <button
-                  className="md:px-4 px-2 py-2 md:m-2 m-0.5 rounded-lg bg-purple-700 text-white font-semibold  text-xs "
+                  className="md:px-4 px-2 py-2 md:mr-2 mr-0.5 rounded-lg bg-purple-700 text-white font-semibold  text-xs "
                   onClick={handleGptSearch}
                 >
                   {isToggleGpt ? "Home" : "GPTsearch"}
                 </button>
               </div>
               {isToggleGpt ? (
-                <div className="flex items-center justify-end">
+                <div className="flex items-center justify-center mt-2">
                   <select
                     className="py-2 px-2 rounded-lg text-xs"
                     onChange={handleLangPreference}
