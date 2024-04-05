@@ -61,10 +61,10 @@ const MovieInfo = ({ movieId }) => {
           alt="poster"
         />
         <div className="md:w-4/5">
-          <div className="text-white font-semibold md:text-6xl text-2xl flex items-center md:justify-start md:ml-20 ml-4 md:mt-[10%] mt-4">
+          <div className="text-white px-2 font-semibold md:text-6xl text-2xl flex items-center md:justify-start md:ml-20 ml-4 md:mt-[10%] mt-4">
             {movieTitle}
           </div>
-          <div className="mt-4 md:flex text-lg">
+          <div className="mt-4 md:flex text-lg px-2">
             <div className="md:ml-20 flex ml-4   items-center">
               <label className="text-white font-bold">Release Date:</label>
               <span className="text-white p-1 m-2 rounded-2xl border border-white">
@@ -75,7 +75,7 @@ const MovieInfo = ({ movieId }) => {
               <label className="text-white font-bold">Genres:</label>
               {genre.map((item) => (
                 <span
-                  className="text-white ml-2 px-1 py-1  rounded-2xl border border-white"
+                  className="text-white ml-2 px-1 py-1 whitespace-nowrap rounded-2xl border border-white"
                   key={item.id}
                 >
                   {item.name}
@@ -83,13 +83,13 @@ const MovieInfo = ({ movieId }) => {
               ))}
             </div>
           </div>
-          <div className="md:ml-20 ml-4 text-xl flex items-center mt-4">
+          <div className="md:ml-20 ml-4 text-xl flex items-center mt-4 px-2">
             <label className="text-white font-bold">Tagline: </label>
-            <div className="ml-2 text-white">"{tagLine}"</div>
+            <div className="ml-2 text-white text-wrap">"{tagLine}"</div>
           </div>
-          <div className="md:ml-20 ml-4 text-xl  mt-4">
+          <div className="md:ml-20 ml-4 text-xl mt-4 px-2">
             <label className="text-white font-bold">Overview: </label>
-            <div className="mt-2 text-white">{overView}</div>
+            <div className="mt-2 text-white text-wrap ">{overView}</div>
           </div>
         </div>
       </div>
