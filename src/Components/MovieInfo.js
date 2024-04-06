@@ -75,7 +75,7 @@ const MovieInfo = ({ movieId }) => {
               <label className="text-white font-bold">Genres:</label>
               {genre.map((item) => (
                 <span
-                  className="text-white ml-2 px-1 py-1 whitespace-nowrap rounded-2xl border border-white"
+                  className="text-white ml-2 p-1 whitespace-nowrap rounded-2xl border border-white"
                   key={item.id}
                 >
                   {item.name}
@@ -83,11 +83,11 @@ const MovieInfo = ({ movieId }) => {
               ))}
             </div>
           </div>
-          <div className="md:ml-20 ml-4 text-xl flex items-center mt-4 px-2">
+          <div className="md:ml-20 ml-4 text-xl flex items-center mt-4 p-2">
             <label className="text-white font-bold">Tagline: </label>
             <div className="ml-2 text-white text-wrap">"{tagLine}"</div>
           </div>
-          <div className="md:ml-20 ml-4 text-xl mt-4 px-2">
+          <div className="md:ml-20 ml-4 text-xl mt-4 p-2">
             <label className="text-white font-bold">Overview: </label>
             <div className="mt-2 text-white text-wrap ">{overView}</div>
           </div>
