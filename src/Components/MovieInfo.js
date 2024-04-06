@@ -66,8 +66,10 @@ const MovieInfo = ({ movieId }) => {
           </div>
           <div className="mt-4 md:flex text-lg px-2">
             <div className="md:ml-20 flex ml-4   items-center">
-              <label className="text-white font-bold">Release Date:</label>
-              <span className="text-white p-1 m-2 rounded-2xl border border-white">
+              <label className="text-white whitespace-nowrap font-bold">
+                Release Date:
+              </label>
+              <span className="text-white p-1 m-2 whitespace-nowrap rounded-2xl border border-white">
                 {releaseDate}
               </span>
             </div>
@@ -83,13 +85,15 @@ const MovieInfo = ({ movieId }) => {
               ))}
             </div>
           </div>
-          <div className="md:ml-20 ml-4 text-xl flex items-center mt-4 p-2">
+          <div className="md:ml-20 ml-4 text-xl flex items-center mt-4 p-2 ">
             <label className="text-white font-bold">Tagline: </label>
-            <div className="ml-2 text-white text-wrap">"{tagLine}"</div>
+            <div className="ml-2 p-2 text-white text-wrap">"{tagLine}"</div>
           </div>
-          <div className="md:ml-20 ml-4 text-xl mt-4 p-2">
+          <div className="md:ml-20 ml-4 text-xl  mt-4 p-2">
             <label className="text-white font-bold">Overview: </label>
-            <div className="mt-2 text-white text-wrap ">{overView}</div>
+            <div className="mt-2 pr-2 text-white  line-clamp-4  ">
+              {overView}
+            </div>
           </div>
         </div>
       </div>
