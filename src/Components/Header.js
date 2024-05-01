@@ -65,7 +65,7 @@ const Header = () => {
   return (
     <div className="absolute w-screen  z-10 bg-gradient-to-b from-black ">
       <div className="px-2 md:px-4 flex justify-between ">
-        <p className=" text-red-600 font-serif font-extrabold pt-4 text-5xl">
+        <p className=" text-red-600 font-serif font-extrabold pt-4 text-2xl md:text-5xl">
           Filmy Hub
         </p>
         {user && (
