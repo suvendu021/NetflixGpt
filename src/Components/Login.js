@@ -152,7 +152,7 @@ const Login = () => {
           onClick={changeToSignInOrOff}
         >
           {signIn
-            ? "New to Netflix ? Sign Up Now"
+            ? "New to Filmy Hub ? Sign Up Now"
             : "Already have an account ? Sign In Now"}
         </p>
       </form>
